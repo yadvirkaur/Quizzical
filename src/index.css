@@ -1,13 +1,153 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  background-color: #0b2434;
+  padding: 20px;
+  font-family: "Karla", sans-serif;
+}
+
+main,
+.gamepage {
+  background-color: #f5f7fb;
+  border-radius: 5px;
+  min-height: 550px;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.start-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.game-block {
+  padding-left: 75px;
+  padding-top: 40px;
+}
+
+.quizzical {
+  font-weight: 700;
+  font-size: 32px;
+  color: #293264;
+  margin-bottom: 55px;
+}
+
+.start-quiz-btn {
+  height: 50px;
+  width: 190px;
+  border: none;
+  border-radius: 15px;
+  background-color: #4d5b9e;
+  color: #f5f7fb;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+}
+
+.question {
+  font-family: "Karla";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #293264;
+  margin-bottom: 13px;
+}
+
+.line {
+  width: 399px;
+  height: 0px;
+  margin-bottom: 13px;
+  border: 0.794239px solid #dbdef0;
+}
+
+.question-block {
+  max-width: 390px;
+  display: flex;
+  flex-direction: column;
+}
+
+.answer {
+  border: 0.794239px solid #4d5b9e;
+  border-radius: 7.94239px;
+  background-color: transparent;
+  padding: 4px 20px;
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 10.24px;
+  line-height: 12px;
+  text-align: center;
+  color: #293264;
+  margin-right: 13px;
+  margin-bottom: 13px;
+}
+.selected {
+  background: #d6dbf5;
+  border-radius: 7.71045px;
+}
+
+.check {
+  outline: none;
+  border: none;
+  width: 120px;
+  height: 35px;
+  background: #4d5b9e;
+  border-radius: 10px;
+
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 10px;
+  text-align: center;
+  color: #f5f7fb;
+  margin-inline: 20px;
+}
+.score {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 12.8px;
+  text-align: center;
+  color: #293264;
+}
+
+.score-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 5px;
+}
+.blue-blob {
+  opacity: 80%;
+  left: -20%;
+  bottom: -25%;
+}
+.lime-blob {
+  opacity: 80%;
+  right: -20%;
+  top: -20%;
+}
+
+#correct.answer {
+  background-color: #94d7a2;
+  border: 1px solid #94d7a2;
+}
+#incorrect.answer.selected {
+  background-color: #f8bcbc;
+  border: 1px solid #f8bcbc;
+}
+#not-selected.answer {
+  color: rgba(41, 50, 100, 0.4);
+  border: 1px solid rgba(41, 50, 100, 0.4);
 }
