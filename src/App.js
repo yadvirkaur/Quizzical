@@ -11,7 +11,7 @@ export default function App() {
    
     React.useEffect(() => {
       async function getQuestions() {
-          const res = await fetch("https://opentdb.com/api.php?amount=5&encode=base64")
+          const res = await fetch("https://opentdb.com/api.php?amount=5&category=9&difficulty=easy")
           const data = await res.json()
           
           const q= []
