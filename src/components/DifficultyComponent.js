@@ -6,14 +6,15 @@ export default function DifficultyComponent(props) {
             <label htmlFor="Difficulty">Choose quiz difficulty</label>
             <select 
                 id="Difficulty" 
-                value={props.quizDifficulty}
-                onChange={props.handleDifficultyChange}
+                value={props.value}
+                onChange={props.onChange}
                 name="Difficulty"
                 className="Difficulty options"
             >
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
+                 <option value=''>Any Difficulty</option>
+                <option value='difficulty=easy'>Easy</option>
+                <option value='difficulty=medium'>Medium</option>
+                <option value='difficulty=hard'>Hard</option>
             </select>
         </div>
     );

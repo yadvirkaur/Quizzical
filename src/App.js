@@ -16,8 +16,9 @@ export default function App() {
     const [quizDifficulty, setQuizDifficulty] =React.useState('');
    
     React.useEffect(() => {
+
       async function getQuestions() {
-          const res = await fetch(`https://opentdb.com/api.php?amount=5&encode=base64&${quizCategory}`)
+          const res = await fetch(`https://opentdb.com/api.php?amount=5&encode=base64&${quizCategory}&${quizDifficulty}`)
           const data = await res.json()
           
           const q= []
@@ -34,8 +35,11 @@ export default function App() {
           setQuestions(q)
       }
       getQuestions()
-  }, [count,quizCategory]) //count's value will change when user will choose to play again, hence new set of questions will be fetched.
-  
+  }, [count,quizCategory, quizDifficulty]) //count's value will change when user will choose to play again, hence new set of questions will be fetched.
+
+  // alert(`https://opentdb.com/api.php?amount=5&encode=base64&${quizCategory}&${quizDifficulty}`)
+         
+
 
 function selectedAnswer(id,answer){
  setQuestions(Questions => Questions.map(question => {
@@ -82,7 +86,7 @@ function changeCategory(e) {
 }
 
 function handleDifficultyChange(e){
- setQuizDifficulty(e.target.value)
+ setQuizDifficulty(e.target.value);
 }
 
 
