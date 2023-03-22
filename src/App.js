@@ -1,6 +1,10 @@
 import React from "react"
 import Question from "./components/Question"
+import CategoryComponent from "./components/CategoryComponent"
+import DifficultyComponent from "./components/DifficultyComponent"
 import {nanoid} from "nanoid"
+import blueBlob from "./images/blueBlob.svg"
+import limeBlob from "./images/limeBlob.svg"
 
 export default function App() {
     const [questions, setQuestions] = React.useState([])
@@ -8,10 +12,12 @@ export default function App() {
     const [start, setStart] = React.useState(false);
     const [checked, setChecked] = React.useState(false);
     const [count, setCount] = React.useState(0);
+    const [quizCategory, setQuizCategory] =React.useState('');
+    const [quizDifficulty, setQuizDifficulty] =React.useState('');
    
     React.useEffect(() => {
       async function getQuestions() {
-          const res = await fetch("https://opentdb.com/api.php?amount=5&encode=base64")
+          const res = await fetch(`https://opentdb.com/api.php?amount=5&encode=base64&${quizCategory}`)
           const data = await res.json()
           
           const q= []
@@ -28,7 +34,7 @@ export default function App() {
           setQuestions(q)
       }
       getQuestions()
-  }, [count]) //count's value will change when user will choose to play again, hence new set of questions will be fetched.
+  }, [count,quizCategory]) //count's value will change when user will choose to play again, hence new set of questions will be fetched.
   
 
 function selectedAnswer(id,answer){
@@ -71,6 +77,15 @@ function startQuiz(){
   setStart(!start)  //for deciding which page to display: start/game page
 }
 
+function changeCategory(e) {
+  setQuizCategory( e.target.value);
+}
+
+function handleDifficultyChange(e){
+ setQuizDifficulty(e.target.value)
+}
+
+
 return (
   <main>
     {
@@ -83,10 +98,10 @@ return (
       </div>
 
       <div class="tk-blob blue-blob">
-        <img src="./blobBlue.svg"></img>
+       <img src={blueBlob} />
       </div>
       <div className="tk-blob lime-blob">
-        <img src="./limeBlob.svg"></img>
+        <img src={limeBlob} />
       </div>
      </div>
 
@@ -94,14 +109,19 @@ return (
      <div className="startpage">
       <div className="start-block">
         <div className="quizzical">Quizzical</div>
+        <div className='quiz-options-container'>
+          <CategoryComponent value={quizCategory} onChange={changeCategory} />
+          <DifficultyComponent value={quizDifficulty} onChange={handleDifficultyChange} />
+        </div>
+
         <button className="start-quiz-btn" onClick={startQuiz}>Start Quiz</button>
       </div>
 
       <div className="tk-blob blue-blob">
-        <img src="./blobBlue.svg"></img>
+        <img src={blueBlob} />
       </div>
       <div className="tk-blob lime-blob">
-        <img src="./limeBlob.svg"></img>
+        <img src={limeBlob} />
       </div>
      </div>    
   }
