@@ -100,15 +100,7 @@ return (
         {checked && <span className="score" >You scored {score} /5 correct answers</span>}
         <button className="check" onClick={checked? playAgain :calculateScore}> {checked ? "Play Again" : "Check Answers" } </button>
       </div>
-
-      <div class="tk-blob blue-blob">
-       <img src={blueBlob} />
-      </div>
-      <div className="tk-blob lime-blob">
-        <img src={limeBlob} />
-      </div>
      </div>
-
     :
      <div className="startpage">
       <div className="start-block">
@@ -117,18 +109,16 @@ return (
           <CategoryComponent value={quizCategory} onChange={changeCategory} />
           <DifficultyComponent value={quizDifficulty} onChange={handleDifficultyChange} />
         </div>
-
         <button className="start-quiz-btn" onClick={startQuiz}>Start Quiz</button>
       </div>
-
+     </div>    
+  }
       <div className="tk-blob blue-blob">
         <img src={blueBlob} />
       </div>
       <div className="tk-blob lime-blob">
         <img src={limeBlob} />
       </div>
-     </div>    
-  }
   </main>
 )
 }

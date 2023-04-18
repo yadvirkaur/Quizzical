@@ -1,37 +1,65 @@
-* {
+:root {
+  /* Step -1: 10.83px → 12.00px */
+  --step--1: clamp(0.68rem, calc(0.65rem + 0.13vw), 0.75rem);
+
+  /* Step 0: 13.00px → 15.00px */
+  --step-0: clamp(0.81rem, calc(0.77rem + 0.22vw), 0.94rem);
+
+  /* Step 1: 15.60px → 18.75px */
+  --step-1: clamp(0.98rem, calc(0.91rem + 0.34vw), 1.17rem);
+
+  /* Step 2: 18.72px → 23.44px */
+  --step-2: clamp(1.17rem, calc(1.07rem + 0.51vw), 1.47rem);
+
+  /* Step 4: 26.96px → 36.62px */
+  --step-4: clamp(1.69rem, calc(1.48rem + 1.05vw), 2.29rem);
+
+  /* Step 5: 32.35px → 45.78px */
+  --step-5: clamp(2.02rem, calc(1.73rem + 1.46vw), 2.86rem);
+}
+
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background-color: #0b2434;
-  padding: 20px;
+  padding: 0;
+  background-color: #f5f7fb;
   font-family: "Karla", sans-serif;
 }
 
-main,
-.gamepage {
-  background-color: #f5f7fb;
-  border-radius: 5px;
-  min-height: 550px;
-  width: 550px;
+main {
+  min-height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: auto;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
 }
 
+.startpage,
+.gamepage {
+  padding-inline: 4%;
+}
+
 .blue-blob {
+  position: absolute;
+  z-index: -99;
   opacity: 80%;
-  left: -20%;
-  bottom: -25%;
+  left: -15%;
+  bottom: 0;
 }
 .lime-blob {
+  position: absolute;
+  z-index: 99;
   opacity: 80%;
-  right: -20%;
-  top: -20%;
+  right: -10%;
+  top: 0;
 }
 
 .start-block {
@@ -42,64 +70,62 @@ main,
 }
 
 .game-block {
-  padding-left: 75px;
   padding-top: 40px;
 }
 
 .quizzical {
   font-weight: 700;
-  font-size: 32px;
+  font-size: var(--step-5);
   color: #293264;
   margin-bottom: 55px;
 }
 
 .start-quiz-btn {
   height: 50px;
-  width: 190px;
+  width: 100%;
   border: none;
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: #4d5b9e;
   color: #f5f7fb;
   font-weight: 500;
-  font-size: 16px;
+  font-size: var(--step-1);
   font-family: "Inter", sans-serif;
   cursor: pointer;
   transition: 0.5s ease-out;
 }
 .start-quiz-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.02);
 }
 
 .question {
   font-family: "Karla";
   font-weight: 700;
-  font-size: 16px;
+  font-size: var(--step-1);
   line-height: 19px;
   color: #293264;
   margin-bottom: 13px;
 }
 
 .line {
-  width: 399px;
+  width: 100%;
   height: 0px;
   margin-bottom: 13px;
   border: 0.794239px solid #dbdef0;
 }
 
 .question-block {
-  max-width: 390px;
   display: flex;
   flex-direction: column;
 }
 
 .answer {
-  border: 0.794239px solid #4d5b9e;
-  border-radius: 7.94239px;
+  border: 0.8px solid #4d5b9e;
+  border-radius: 8px;
   background-color: transparent;
   padding: 4px 20px;
   font-family: "Inter";
   font-weight: 500;
-  font-size: 10.24px;
+  font-size: var(--step--1);
   line-height: 12px;
   text-align: center;
   color: #293264;
@@ -118,10 +144,9 @@ main,
   height: 35px;
   background: #4d5b9e;
   border-radius: 10px;
-
   font-family: "Inter";
   font-weight: 600;
-  font-size: 10px;
+  font-size: var(--step--1);
   text-align: center;
   color: #f5f7fb;
   margin-inline: 20px;
@@ -129,7 +154,7 @@ main,
 .score {
   font-family: "Inter";
   font-weight: 700;
-  font-size: 12.8px;
+  font-size: var(--step-0);
   text-align: center;
   color: #293264;
 }
@@ -157,25 +182,50 @@ main,
 }
 
 .quiz-options-container {
+  width: 100%;
   font-family: "Inter";
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--step-1);
   color: #293264;
 }
+
 .option-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
-  gap: 10px;
+  margin-bottom: 2em;
+  gap: 0.5em;
 }
 .options {
-  height: 30px;
-  max-width: 100%;
-  padding-inline: 10px;
+  min-width: 100%;
+  text-align: center;
+  padding: 0.2em 0em;
   border: 1px solid #293264;
-  border-radius: 15px;
+  outline: none;
+  border-radius: 16px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--step-1);
   cursor: pointer;
+}
+
+@media (min-width: 750px) {
+  body {
+    padding: 20px;
+  }
+  .quiz-options-container {
+    width: 50%;
+  }
+  .start-quiz-btn {
+    width: 190px;
+  }
+  main {
+    border: 1px solid rgb(230, 228, 228);
+    box-shadow: 0 0 10px rgba(41, 50, 100, 0.2);
+    border-radius: 12px;
+    min-height: clamp(550px, 90%, 90%);
+    width: clamp(550px, 100%, 850px);
+  }
+  .game-block {
+    padding-inline: 75px;
+  }
 }
