@@ -56,7 +56,7 @@ main {
 }
 .lime-blob {
   position: absolute;
-  z-index: 99;
+  z-index: -99;
   opacity: 80%;
   right: -10%;
   top: 0;
