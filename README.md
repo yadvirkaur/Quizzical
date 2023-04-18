@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Quizzical is a quiz app with various categories and difficulty levels from Open Trivia Database, offering a personalized experience. It provides an entertaining way to spend time, and helps to improve knowledge.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
