@@ -28,7 +28,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f5f7fb;
-  font-family: "Karla", sans-serif;
+  font-family: 'Karla', sans-serif;
 }
 
 main {
@@ -89,7 +89,7 @@ main {
   color: #f5f7fb;
   font-weight: 500;
   font-size: var(--step-1);
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   cursor: pointer;
   transition: 0.5s ease-out;
 }
@@ -98,7 +98,7 @@ main {
 }
 
 .question {
-  font-family: "Karla";
+  font-family: 'Karla';
   font-weight: 700;
   font-size: var(--step-1);
   line-height: 19px;
@@ -123,7 +123,7 @@ main {
   border-radius: 8px;
   background-color: transparent;
   padding: 4px 20px;
-  font-family: "Inter";
+  font-family: 'Inter';
   font-weight: 500;
   font-size: var(--step--1);
   line-height: 12px;
@@ -144,7 +144,7 @@ main {
   height: 35px;
   background: #4d5b9e;
   border-radius: 10px;
-  font-family: "Inter";
+  font-family: 'Inter';
   font-weight: 600;
   font-size: var(--step--1);
   text-align: center;
@@ -152,7 +152,7 @@ main {
   margin-inline: 20px;
 }
 .score {
-  font-family: "Inter";
+  font-family: 'Inter';
   font-weight: 700;
   font-size: var(--step-0);
   text-align: center;
@@ -183,7 +183,7 @@ main {
 
 .quiz-options-container {
   width: 100%;
-  font-family: "Inter";
+  font-family: 'Inter';
   font-weight: 400;
   font-size: var(--step-1);
   color: #293264;
@@ -193,6 +193,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   margin-bottom: 2em;
   gap: 0.5em;
 }
@@ -200,6 +201,7 @@ main {
   min-width: 100%;
   text-align: center;
   padding: 0.2em 0em;
+  margin-top: 0.5em;
   border: 1px solid #293264;
   outline: none;
   border-radius: 16px;
