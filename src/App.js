@@ -28,7 +28,9 @@ export default function App() {
           id: nanoid(),
           question: i.question,
           correct: i.correct_answer,
-          answers: [...i.incorrect_answers, i.correct_answer],
+          answers: [...i.incorrect_answers, i.correct_answer].sort(
+            () => Math.random() - 0.5
+          ),
           selected: null,
           checked: false
         })
